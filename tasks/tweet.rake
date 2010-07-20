@@ -8,7 +8,7 @@ namespace :tweet do
     unless args.username
       raise "Please try again with the username e.g. rake tweet:sleeps[twitteruser]"
     end
-    client(args.username).update(message) unless msg.blank?
+    client(args.username).update(message) unless message.blank?
   end
 end
 
