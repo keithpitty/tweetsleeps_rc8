@@ -1,0 +1,41 @@
+h1. tweetsleeps_rc8
+
+h2. Why?
+
+p. Because I wanted to use the Twitter API and I thought it would be fun to automate tweets that share the anticipation of an approaching Railscamp.
+
+h2. What?
+
+p. A rake task that uses the Twitter gem to share a tweet about the upcoming Railscamp 8 unconference via the Twitter API. Designed to be automated via crontab.
+
+h2. How?
+
+h3. Clone repo
+
+p. Clone the repo to the machine on which you want the rake task to run.
+
+h3. Store Twitter username and password
+
+# Create a <code>.tweetsleeps</code> directory within the user's home directory
+# Create <code>users.yml</code> within the <code>.tweetsleeps</code> directory and add the twitter username and password as follows:
+
+<pre>
+  <code>
+    ---
+    username: password
+  </code>
+</pre>
+
+h3. Automate via crontab
+
+p. Use <code>crontab -e</code> to define when the task should run, such as in the following example:
+
+<pre>
+  <code>
+    15 8,16 * * * cd "/path/tweetsleeps_rc8"; rake tweet:sleeps[twitter_username]
+  </code>
+</pre>
+
+h2. Who?
+
+p. Inspired by Martin Stannard's "Is it railscamp yet?":http://github.com/martinstannard/isitrailscampyet Sinatra app, which was created in anticipation of Railscamp 5.
