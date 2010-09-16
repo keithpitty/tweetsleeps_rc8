@@ -13,7 +13,9 @@ namespace :tweet do
 end
 
 def client(username)
-  Twitter::Base.new(Twitter::HTTPAuth.new(username, password_for(username)))
+  oauth = Twitter::OAuth.new(config[consumer_key], config[consumer_secret])
+  oauth.authorize_from_access(config[access_token], config[access_key])
+  Twitter::Base.new(oauth)
 end
 
 def message
@@ -29,10 +31,8 @@ def message
   end
 end
 
-def password_for(username)
-  users = YAML::load_file(File.expand_path("~/.tweetsleeps/users.yml"))
-  raise 'User not found!' unless users[username]
-  users[username]
+def config(username)
+  YAML::load_file(File.expand_path("~/.tweetsleeps/#{username}.yml"))
 end
 
 def days_left
