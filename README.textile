@@ -14,15 +14,19 @@ h3. Clone repo
 
 p. Clone the repo to the machine on which you want the rake task to run.
 
-h3. Store Twitter username and password
+h3. Store Twitter OAuth details
 
 # Create a <code>.tweetsleeps</code> directory within the user's home directory
-# Create <code>users.yml</code> within the <code>.tweetsleeps</code> directory and add the twitter username and password as follows:
+# Using the OAuth details from your registration on twitter, create <code>twitter_username.yml</code> within the <code>.tweetsleeps</code> directory and add the twitter oauth details as follows:
 
 <pre>
   <code>
     ---
-    username: password
+    consumer_key: xxx
+    consumer_secret: xxx
+    access_token: xxx
+    access_secret: xxx
+    
   </code>
 </pre>
 

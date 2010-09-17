@@ -13,8 +13,9 @@ namespace :tweet do
 end
 
 def client(username)
-  oauth = Twitter::OAuth.new(config[consumer_key], config[consumer_secret])
-  oauth.authorize_from_access(config[access_token], config[access_key])
+  config = oauth_config(username)
+  oauth = Twitter::OAuth.new(config['consumer_key'], config['consumer_secret'])
+  oauth.authorize_from_access(config['access_token'], config['access_secret'])
   Twitter::Base.new(oauth)
 end
 
@@ -31,7 +32,7 @@ def message
   end
 end
 
-def config(username)
+def oauth_config(username)
   YAML::load_file(File.expand_path("~/.tweetsleeps/#{username}.yml"))
 end
 
