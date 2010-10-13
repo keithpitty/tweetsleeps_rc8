@@ -1,7 +1,6 @@
 class RandomMessage
   def self.generate
     msg = [
-        'FUCK YEAH!',
         'hack Rails, Ruby and more!',
         'make the most of shared coding experiences.',
         'meet and catch up with other hackers.',
@@ -22,7 +21,16 @@ class RandomMessage
         'learn more Ruby!',
         'learn more Rails!',
         'learn more Sinatra!',
-        'bundles of fun to be had.'
+        'bundles of fun to be had.',
+        'git push banana master',
+        'share your banana!',
+        'what geek-fu will you share?',
+        'got an itch to scratch?',
+        'got a pet project to share?',
+        'how will this camp unfold?',
+        'be a mentor to other Ruby programmers.',
+        'bring your Ruby and Rails questions.',
+        'what memes will this camp generate?'
       ]
     msg[rand(msg.size)]
   end
